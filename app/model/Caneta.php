@@ -3,28 +3,89 @@
 
 class Caneta
 {
-    public $modelo;
-    public $cor;
+    private $modelo;
     private $ponta;
-    protected $carga;
-    protected $tampada;
+    private $tampada;
+    private $cor;
 
-    public function rabiscar()
+    /**
+     * Caneta constructor.
+     * @param $modelo
+     * @param $ponta
+     * @param $tampada
+     * @param $cor
+     */
+    public function __construct($modelo, $ponta, $tampada, $cor)
     {
-        if ($this->tampada) {
-            echo "ERRO! Não posso rabiscar\n";
-        } else {
-            echo "Estou rabiscando\n";
-        }
+        $this->modelo = $modelo;
+        $this->ponta = $ponta;
+        $this->tampada = $tampada;
+        $this->cor = $cor;
     }
 
-    public function tampar()
+
+    /**
+     * @return mixed
+     */
+    public function getModelo()
     {
-        $this->tampada = true;
+        return $this->modelo;
     }
 
-    public function destampar()
+    /**
+     * @param mixed $modelo
+     */
+    public function setModelo($modelo): void
     {
-        $this->tampada = false;
+        $this->modelo = $modelo;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPonta()
+    {
+        return $this->ponta;
+    }
+
+    /**
+     * @param mixed $ponta
+     */
+    public function setPonta($ponta): void
+    {
+        $this->ponta = $ponta;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTampada()
+    {
+        return $this->tampada;
+    }
+
+    /**
+     * @param mixed $tampada
+     */
+    public function setTampada($tampada): void
+    {
+        $this->tampada = $tampada;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCor()
+    {
+        return $this->cor;
+    }
+
+    /**
+     * @param mixed $cor
+     */
+    public function setCor($cor): void
+    {
+        $this->cor = $cor;
+    }
+
 }

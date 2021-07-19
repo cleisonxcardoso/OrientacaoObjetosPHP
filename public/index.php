@@ -1,78 +1,34 @@
 <?php
 
-use App\model\Lutador;
-use App\model\Luta;
-
 require __DIR__ . '/../vendor/autoload.php';
 
-$l = array();
+use App\model\Pessoa;
+use App\model\Aluno;
+use App\model\Professor;
+use App\model\Funcionario;
 
-$l[0] = new Lutador(
-    'Pretty Boy',
-    'França',
-    31,
-    1.75,
-    68.9,
-    11,
-    2,
-    1
-);
+$p1 = new Pessoa();
+$p2 = new Aluno();
+$p3 = new Professor();
+$p4 = new Funcionario();
 
-$l[1] = new Lutador(
-    'Putscript',
-    'Brasil',
-    29,
-    1.68,
-    57.8,
-    14,
-    2,
-    3
-);
+$p1->setNome("Pedro");
+$p1->setSexo("M");
 
-$l[2] = new Lutador(
-    'Snap Shahdow',
-    'EUA',
-    35,
-    1.65,
-    80.9,
-    12,
-    2,
-    1
-);
+$p2->setNome("Maria");
+$p2->setCurso("Informatica");
 
-$l[3] = new Lutador(
-    'Dead Code',
-    'Austrália',
-    28,
-    1.93,
-    81.6,
-    13,
-    0,
-    2
-);
+$p3->setNome("Claudio");
+$p3->setSalario(2500.10);
 
-$l[4] = new Lutador(
-    'Ufo Cobol',
-    "Brasil",
-    37,
-    1.70,
-    119.3,
-    5,
-    4,
-    3
-);
+$p4->setNome("Fabiana");
+$p4->setSexo("F");
 
-$l[5] = new Lutador(
-    'Nerdaart',
-    'EUA',
-    30,
-    1.81,
-    105.7,
-    12,
-    2,
-    4
-);
+$p3->receberAumento(550.20);
+$p4->mudarTrabalho();
+$p2->cancelarMatricula();
 
-$uec01 = new Luta();
-$uec01->marcarLuta($l[0], $l[4]);
-$uec01->lutar();
+print_r($p1);
+print_r($p2);
+print_r($p3);
+print_r($p4);

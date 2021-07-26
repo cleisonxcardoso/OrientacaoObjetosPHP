@@ -4,45 +4,103 @@
 namespace App\model;
 
 
-class Pessoa
-{
-    private $nome;
-    private $idade;
-    private $sexo;
+use App\interfaces\AndarInterface;
+use App\interfaces\ChutarInterface;
+use App\interfaces\CorrerInterface;
 
-    public function fazerAniversario()
+class Pessoa implements AndarInterface, CorrerInterface, ChutarInterface
+{
+    private string $nome;
+    private string $cpf;
+    private string $email;
+    private float $altura;
+    private int $idade;
+
+    public function __construct(
+        string $nome,
+        string $cpf,
+        string $email,
+        float $altura,
+        int $idade)
     {
-        $this->setIdade($this->getIdade() + 1);
+        $this->nome = $nome;
+        $this->cpf = $cpf;
+        $this->setEmail($email);
+        $this->altura = $altura;
+        $this->idade = $idade;
     }
 
-    public function getNome()
+    private function validaEmail($email): bool
+    {
+        return strpos($email, '@');
+    }
+
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function setNome($nome)
+    public function setNome(string $nome): void
     {
         $this->nome = $nome;
     }
 
-    public function getIdade()
+    public function getCpf(): string
+    {
+        return $this->cpf;
+    }
+
+    public function setCpf(string $cpf): void
+    {
+        $this->cpf = $cpf;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        if ($this->validaEmail($email)) {
+            $this->email = $email;
+        } else {
+            echo "Email inválido";
+        }
+    }
+
+    public function getAltura(): float
+    {
+        return $this->altura;
+    }
+
+    public function setAltura(float $altura): void
+    {
+        $this->altura = $altura;
+    }
+
+    public function getIdade(): int
     {
         return $this->idade;
     }
 
-    public function setIdade($idade)
+    public function setIdade(int $idade): void
     {
         $this->idade = $idade;
     }
 
-    public function getSexo()
+    public function andar(float $velocidade)
     {
-        return $this->sexo;
+        // TODO: Implement andar() method.
     }
 
-    public function setSexo($sexo)
+    public function correr(float $velocidade)
     {
-        $this->sexo = $sexo;
+        // TODO: Implement correr() method.
     }
 
+    public function chutar(int $forca)
+    {
+        // TODO: Implement chutar() method.
+    }
 }
